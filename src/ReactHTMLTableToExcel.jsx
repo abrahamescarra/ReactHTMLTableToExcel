@@ -9,6 +9,7 @@ const propTypes = {
   id: PropTypes.string,
   className: PropTypes.string,
   buttonText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  filetype: PropTypes.string,
 };
 
 const defaultProps = {
@@ -53,7 +54,13 @@ class ReactHTMLTableToExcel extends Component {
 
     const table = document.getElementById(this.props.table).outerHTML;
     const sheet = String(this.props.sheet);
-    const filename = `${String(this.props.filename)}.xls`;
+    const filename = String(
+      this.props.filetype
+        ? this.props.filetype == "xlsx"
+          ? "xlsx"
+          : "xls"
+        : "xls"
+    );
 
     const uri = "data:application/vnd.ms-excel;base64,";
     const template =
