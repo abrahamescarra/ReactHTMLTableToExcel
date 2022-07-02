@@ -136,7 +136,7 @@ var ReactHTMLTableToExcel = (function (_Component) {
 
           var table = document.getElementById(this.props.table).outerHTML;
           var sheet = String(this.props.sheet);
-          var filename = String(this.props.filename) + ".xls";
+          var filename = String(this.props.filename) + ".xlsx";
 
           var uri = "data:application/vnd.ms-excel;base64,";
           var template =
