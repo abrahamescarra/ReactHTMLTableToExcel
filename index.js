@@ -74,7 +74,6 @@ function _inherits(subClass, superClass) {
 var propTypes = {
   table: _propTypes2.default.string.isRequired,
   filename: _propTypes2.default.string.isRequired,
-  filetype: _propTypes2.default.string.isRequired,
   sheet: _propTypes2.default.string.isRequired,
   id: _propTypes2.default.string,
   className: _propTypes2.default.string,
@@ -137,14 +136,7 @@ var ReactHTMLTableToExcel = (function (_Component) {
 
           var table = document.getElementById(this.props.table).outerHTML;
           var sheet = String(this.props.sheet);
-          var filetype = String(
-            this.props.filetype
-              ? this.props.filetype == "xlsx"
-                ? "xlsx"
-                : "xls"
-              : "xls"
-          );
-          var filename = String(this.props.filename) + "." + filetype;
+          var filename = String(this.props.filename) + ".xls";
 
           var uri = "data:application/vnd.ms-excel;base64,";
           var template =
